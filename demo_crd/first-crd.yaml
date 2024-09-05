@@ -4,7 +4,7 @@ metadata:
   name: myresources.example.com
 spec:
   group: example.com
-  scope: Namespaced
+  scope: Cluster
   names:
     kind: DemoCrd
     plural: democrds
@@ -25,7 +25,7 @@ spec:
                 field1:
                   type: string
                 field2:
-                  type: intege
+                  type: integer
     - name: v2
       served: true
       storage: false
@@ -39,9 +39,9 @@ spec:
                 field1:
                   type: string
                 field2:
-                  type: intege
+                  type: integer
                 field3:
-                  type: intege
+                  type: integer
     - name: v3
       served: true
       storage: true
