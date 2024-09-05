@@ -58,7 +58,7 @@ spec:
                   type: string
                 field2:
                   type: integer
-                field3:
+                field4:
                   type: integer
                 config:
                   type: object

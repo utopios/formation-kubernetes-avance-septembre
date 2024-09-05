@@ -1,0 +1,11 @@
+apiVersion: example.com/v3
+kind: DemoCrd
+metadata:
+  name: my-democrd-instance
+spec:
+  field1: "example"
+  field2: 42
+  field3: 100
+  config:
+    settingA: "valueA"
+    settingB: "valueB"
