@@ -16,13 +16,13 @@ spec:
       containers:
       - name: webhook-server
         image: superutopios/formationkubernetestp1
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 443
-        volumeMounts:
-        - name: webhook-certs
-          mountPath: "/etc/webhook/certs"
-          readOnly: true
+      #   volumeMounts:
+      #   - name: webhook-certs
+      #     mountPath: "/etc/webhook/certs"
+      #     readOnly: true
       # volumes:
       # - name: webhook-certs
       #   secret:
