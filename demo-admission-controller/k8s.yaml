@@ -1,0 +1,92 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webhook-validate-admission-controller
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webhook-validate-admission-controller
+  template:
+    metadata:
+      labels:
+        app: webhook-validate-admission-controller
+    spec:
+      containers:
+      - name: webhook-validate-admission-controller
+        image: superutopios/validate-hook
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 443
+      #   volumeMounts:
+      #   - name: webhook-certs
+      #     mountPath: "/etc/webhook/certs"
+      #     readOnly: true
+      # volumes:
+      # - name: webhook-certs
+      #   secret:
+      #     secretName: webhook-server-tls
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: admission-validate-controller-webhook-service
+  namespace: default
+spec:
+  ports:
+  - port: 443
+    targetPort: 443
+  selector:
+    app: webhook-validate-admission-controller
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webhook-mutate-admission-controller
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webhook-mutate-admission-controller
+  template:
+    metadata:
+      labels:
+        app: webhook-mutate-admission-controller
+    spec:
+      containers:
+      - name: webhook-mutate-admission-controller
+        image: superutopios/mutate-hook
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 443
+      #   volumeMounts:
+      #   - name: webhook-certs
+      #     mountPath: "/etc/webhook/certs"
+      #     readOnly: true
+      # volumes:
+      # - name: webhook-certs
+      #   secret:
+      #     secretName: webhook-server-tls
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: admission-mutate-controller-webhook-service
+  namespace: default
+spec:
+  ports:
+  - port: 443
+    targetPort: 443
+  selector:
+    app: webhook-mutate-admission-controller
+
+
+
