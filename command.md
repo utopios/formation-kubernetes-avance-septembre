@@ -97,9 +97,18 @@ func init() {
 
 ```
 
-### Etape 3
+### Etape 3 => génération des CRDs 
 
 ```bash
 make manifests
 ```
+
+### Etape 4 => déployer les crds dans le cluster
+kubectl apply -f <path/to/crd>
+
+```bash
+kubectl apply -f config/crd/bases/utopios.net.utopios.net_webapps.yaml 
+```
+
+### Etape 5 => implémenter le controller pour les CRs
 

@@ -45,7 +45,7 @@ type WebAppStatus struct {
 	AvailableReplicas int32 `json:"availableReplicas"`
 }
 
-// +kubebuilder:object:root=true
+// +kubebuilder:object:root=false
 // +kubebuilder:subresource:status
 
 // WebApp is the Schema for the webapps API
