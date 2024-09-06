@@ -96,3 +96,10 @@ func init() {
 }
 
 ```
+
+### Etape 3
+
+```bash
+make manifests
+```
+
