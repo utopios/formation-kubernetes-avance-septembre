@@ -1,0 +1,23 @@
+replicaCount: 1
+
+namespace: default
+
+image:
+  repository: myregistry/admission-controller
+  tag: latest
+
+service:
+  name: admission-controller-service
+  port: 443
+
+deployment:
+  name: admission-controller
+  containerName: admission-controller
+
+tlsSecretName: admission-controller-tls
+
+webhook:
+  name: admission-controller
+  path: /validate
+
+caBundle: <base64_encoded_ca.crt>
