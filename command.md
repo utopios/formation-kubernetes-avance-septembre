@@ -127,3 +127,7 @@ kubectl apply -f config/samples/utopios.net_v1_webapp.yaml
 
 Endpoint sous le format 
 apis/apiregistration.k8s.io/v1/apiservices/{name}
+
+Pour y accéder 
+
+kubectl get --raw /apis/aggregator.example.com/v1
