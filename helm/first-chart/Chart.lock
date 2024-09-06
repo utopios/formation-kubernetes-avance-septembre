@@ -1,0 +1,6 @@
+dependencies:
+- name: second-chart
+  repository: file://../second-chart
+  version: 0.1.0
+digest: sha256:73930af77da1bb7d44ada26fabaa52fb7973db7a2dbe61778b0d459708b29dfe
+generated: "2024-09-06T15:37:32.327277+02:00"
