@@ -1,0 +1,17 @@
+FROM golang:1.23
+
+# Installer les dépendances nécessaires
+RUN apt-get update && apt-get install -y curl
+
+# Télécharger Kubebuilder et l'installer localement
+RUN curl -L -o kubebuilder "https://go.kubebuilder.io/dl/latest/$(go env GOOS)/$(go env GOARCH)" \
+    && chmod +x kubebuilder \
+    && mv kubebuilder /usr/local/bin/
+
+# Configurer le répertoire de travail
+WORKDIR /workspace
+
+
+
+# Commande par défaut pour entrer dans un shell bash
+CMD ["/bin/bash"]

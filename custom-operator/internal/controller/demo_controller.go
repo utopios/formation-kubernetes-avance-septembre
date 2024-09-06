@@ -31,6 +31,7 @@ import (
 type DemoReconciler struct {
 	client.Client
 	Scheme *runtime.Scheme
+	Record *Record
 }
 
 // +kubebuilder:rbac:groups=domain.com.mydomain.com,resources=demoes,verbs=get;list;watch;create;update;patch;delete
