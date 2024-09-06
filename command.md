@@ -112,3 +112,11 @@ kubectl apply -f config/crd/bases/utopios.net.utopios.net_webapps.yaml
 
 ### Etape 5 => implémenter le controller pour les CRs
 
+##  Etape 6 => build de l'application controller
+```
+make install
+make run
+```
+
+## Etape 7 => déployer une cr
+kubectl apply -f config/samples/utopios.net_v1_webapp.yaml
