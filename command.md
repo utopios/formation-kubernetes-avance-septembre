@@ -120,3 +120,10 @@ make run
 
 ## Etape 7 => déployer une cr
 kubectl apply -f config/samples/utopios.net_v1_webapp.yaml
+
+
+
+# API Aggregation
+
+Endpoint sous le format 
+apis/apiregistration.k8s.io/v1/apiservices/{name}
