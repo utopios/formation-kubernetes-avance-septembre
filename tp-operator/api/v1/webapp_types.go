@@ -29,13 +29,20 @@ type WebAppSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of WebApp. Edit webapp_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	AppName          string `json:"appName"`
+	Image            string `json:"image"`
+	DBImage          string `json:"dbImage"`
+	Replicas         int32  `json:"replicas"`
+	DBSize           string `json:"dbSize"`
+	AutoScaleEnabled bool   `json:"autoScaleEnabled"`
+	TrafficThreshold int32  `json:"trafficThreshold"`
 }
 
 // WebAppStatus defines the observed state of WebApp
 type WebAppStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	AvailableReplicas int32 `json:"availableReplicas"`
 }
 
 // +kubebuilder:object:root=true
@@ -51,6 +58,10 @@ type WebApp struct {
 }
 
 // +kubebuilder:object:root=true
+// +kubebuilder:subresource:status
+// +kubebuilder:printcolumn:name="AppName",type="string",JSONPath=".spec.appName"
+// +kubebuilder:printcolumn:name="Replicas",type="integer",JSONPath=".spec.replicas"
+// +kubebuilder:printcolumn:name="AutoScale",type="boolean",JSONPath=".spec.autoScaleEnabled"
 
 // WebAppList contains a list of WebApp
 type WebAppList struct {
